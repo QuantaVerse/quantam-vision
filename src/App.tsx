@@ -1,7 +1,8 @@
 import React from "react";
-import logo from "./logo.svg";
+import logo from "./assets/images/logo.svg";
 import "./App.css";
-import ChartSample from "./ChartSample";
+import ChartSample from "./components/ChartSample";
+import ProxyManager from "./pages/ProxyManager";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     Learn React
                 </a>
             </header>
+            <ProxyManager />
             <ChartSample />
         </div>
     );
