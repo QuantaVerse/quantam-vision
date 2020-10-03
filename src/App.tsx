@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./assets/images/logo.svg";
-import "./App.css";
+import "./assets/styles/App.scss";
 import ChartSample from "./components/ChartSample";
 import ProxyManager from "./pages/ProxyManager";
 
