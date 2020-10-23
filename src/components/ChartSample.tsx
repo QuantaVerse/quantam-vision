@@ -1,7 +1,7 @@
 import React from "react";
 
 function ChartSample() {
-    return <div></div>;
+    return <div>Sample</div>;
 }
 
 export default ChartSample;
