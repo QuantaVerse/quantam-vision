@@ -29,7 +29,7 @@ interface ProxyManagerState {
     proxy_manager_stats: ProxyStatsLedger | null;
 }
 
-class ProxyManager extends Component<{}, ProxyManagerState> {
+class DataHound extends Component<{}, ProxyManagerState> {
     state: Readonly<ProxyManagerState> = {
         proxy_manager_stats: null
     };
@@ -119,4 +119,4 @@ class ProxyManager extends Component<{}, ProxyManagerState> {
     }
 }
 
-export default ProxyManager;
+export default DataHound;
