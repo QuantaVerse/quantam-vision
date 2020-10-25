@@ -1,27 +1,31 @@
 import React from "react";
 import "./assets/styles/VisionApp.scss";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import WatchDog from "./pages/WatchDog";
 import DataHound from "./pages/DataHound";
 import Parrot from "./pages/Parrot";
-import PageNotFound from "./pages/PageNotFound";
-
-export enum RouteEnum {
-    DefaultRoute = "/",
-    DataHoundRoute = "/datahound",
-    WatchDogRoute = "/watchdog",
-    ParrotRoute = "/parrot",
-    OtherRoute = "*"
-}
+import NotFound from "./pages/NotFound";
+import { NotFoundComponentType, RouteEnum } from "./common/enums";
+import visionLogo from "./assets/images/vision-logo.svg";
 
 function VisionApp() {
     return (
         <Router>
             <div className="vision-app">
                 <div className="top-navbar">
-                    <Link to={RouteEnum.DataHoundRoute}>Data Hound</Link>
-                    <Link to={RouteEnum.WatchDogRoute}>Watch Dog</Link>
-                    <Link to={RouteEnum.ParrotRoute}>Parrot</Link>
+                    <div className="vision-icon-div">
+                        <div className="vision-icon">
+                            <img src={visionLogo} className="vision-app-logo" alt="logo" />
+                        </div>
+                        <div className="vision-text">
+                            <span className="vision-text-span">Vision</span>
+                        </div>
+                    </div>
+                    <div className="vision-module-selector">
+                        <Link to={RouteEnum.DataHoundRoute}>Data Hound</Link>
+                        <Link to={RouteEnum.WatchDogRoute}>Watch Dog</Link>
+                        <Link to={RouteEnum.ParrotRoute}>Parrot</Link>
+                    </div>
                 </div>
 
                 <Switch>
@@ -35,7 +39,7 @@ function VisionApp() {
                         <Parrot />
                     </Route>
                     <Route path={RouteEnum.OtherRoute}>
-                        <PageNotFound />
+                        <NotFound componentType={NotFoundComponentType.Page} />
                     </Route>
                 </Switch>
             </div>

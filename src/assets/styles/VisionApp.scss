@@ -3,45 +3,55 @@
     flex-direction: column;
     min-height: 100vh;
     min-width: 100vw;
-    color: white;
+    color: #a8d4e4;
     text-align: center;
     background: #061d3c;
     background: radial-gradient(circle, rgba(0, 11, 115, 0.25) 0%, rgba(0, 0, 84, 0.25) 50%, rgba(2, 0, 36, 0.25) 100%),
         linear-gradient(to bottom, #033246, #090530);
 
     .top-navbar {
+        display: flex;
+        flex-direction: row;
         min-height: 60px;
         border-bottom: 1px solid #7a736b;
-    }
-}
 
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+        .vision-icon-div {
+            display: flex;
+            flex-direction: row;
+            min-width: 150px;
+            justify-content: center;
+            margin: auto 0;
+            background: linear-gradient(to right, #152440, #152842);
+            .vision-icon {
+                margin-left: auto;
+                .vision-app-logo {
+                    height: 60px;
+                    pointer-events: none;
+                }
+            }
+            .vision-text {
+                display: flex;
+                margin-right: auto;
+                font-size: 24px;
+                min-height: 60px;
+                .vision-text-span {
+                    margin: auto;
+                    padding-bottom: 8px;
+                }
+            }
+        }
+        .vision-module-selector {
+        }
+    }
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
+    .vision-app-logo {
+        animation: vision-app-logo-spin infinite 4s linear;
     }
 }
 
-.App-header {
-    background-color: #282c34;
-    min-height: 20vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes vision-app-logo-spin {
     from {
         transform: rotate(0deg);
     }
