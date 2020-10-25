@@ -1,8 +1,8 @@
 import React from "react";
 import "../assets/styles/pagestyles/NotFound.scss";
 import { Icon } from "@material-ui/core";
-import { NotFoundComponentType } from "../common/enums";
-import StyledLink from "../components/StyledLink";
+import { NotFoundComponentType, RouteEnum } from "../common/enums";
+import StyledLink from "../components/links/StyledLink";
 
 interface NFProps {
     componentType: NotFoundComponentType;
@@ -20,7 +20,7 @@ function NotFound({ componentType }: NFProps) {
             <div className="nf-text">{componentType} not found!</div>
             {componentType === NotFoundComponentType.Page && (
                 <div className="nf-redirect-div">
-                    Go to <StyledLink to="/">Homepage</StyledLink>
+                    Go to <StyledLink to={RouteEnum.DefaultRoute}>Homepage</StyledLink>
                 </div>
             )}
         </div>

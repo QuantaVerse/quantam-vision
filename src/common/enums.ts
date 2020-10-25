@@ -10,3 +10,8 @@ export enum NotFoundComponentType {
     Page = "Page",
     Item = "Item"
 }
+
+export enum UnderConstructionComponentType {
+    Page = "Page",
+    Item = "Item"
+}

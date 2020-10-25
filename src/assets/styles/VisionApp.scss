@@ -13,34 +13,67 @@
         display: flex;
         flex-direction: row;
         min-height: 60px;
-        border-bottom: 1px solid #7a736b;
+        height: 60px;
+        border-bottom: 1px solid #a8d4e4;
+        z-index: 2;
 
-        .vision-icon-div {
-            display: flex;
-            flex-direction: row;
-            min-width: 150px;
-            justify-content: center;
-            margin: auto 0;
-            background: linear-gradient(to right, #152440, #152842);
-            .vision-icon {
-                margin-left: auto;
-                .vision-app-logo {
-                    height: 60px;
-                    pointer-events: none;
-                }
-            }
-            .vision-text {
+        .vision-link {
+            text-decoration: none;
+            color: #61dafb;
+
+            .vision-icon-div {
                 display: flex;
-                margin-right: auto;
-                font-size: 24px;
-                min-height: 60px;
-                .vision-text-span {
-                    margin: auto;
-                    padding-bottom: 8px;
+                flex-direction: row;
+                min-width: 180px;
+                width: 180px;
+                height: 60px;
+                justify-content: center;
+                margin: auto 0;
+                background: linear-gradient(to right, #152440, #152842);
+                border-right: 1px solid #a8d4e4;
+
+                .vision-icon {
+                    margin-left: auto;
+
+                    .vision-app-logo {
+                        height: 60px;
+                        pointer-events: none;
+                    }
+                }
+
+                .vision-text {
+                    display: flex;
+                    margin-right: auto;
+                    font-size: 24px;
+                    min-height: 60px;
+
+                    .vision-text-span {
+                        margin: auto;
+                        padding-bottom: 3px;
+                    }
                 }
             }
         }
         .vision-module-selector {
+            display: flex;
+            flex-direction: row;
+
+            .styled-link {
+                display: flex;
+                min-width: 180px;
+                width: 180px;
+                border-right: 1px solid #a8d4e4;
+
+                .module-name {
+                    margin: auto 0 auto auto;
+                    color: white;
+                    padding: 0 12px;
+                }
+                .module-icon {
+                    margin: auto auto auto 0;
+                    color: #c8ae8a;
+                }
+            }
         }
     }
 }
