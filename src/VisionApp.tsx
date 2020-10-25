@@ -4,12 +4,14 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import WatchDog from "./pages/WatchDog";
 import DataHound from "./pages/DataHound";
 import Parrot from "./pages/Parrot";
+import PageNotFound from "./pages/PageNotFound";
 
 export enum RouteEnum {
     DefaultRoute = "/",
     DataHoundRoute = "/datahound",
     WatchDogRoute = "/watchdog",
-    ParrotRoute = "/parrot"
+    ParrotRoute = "/parrot",
+    OtherRoute = "*"
 }
 
 function VisionApp() {
@@ -31,6 +33,9 @@ function VisionApp() {
                     </Route>
                     <Route path={RouteEnum.ParrotRoute} exact={true}>
                         <Parrot />
+                    </Route>
+                    <Route path={RouteEnum.OtherRoute}>
+                        <PageNotFound />
                     </Route>
                 </Switch>
             </div>

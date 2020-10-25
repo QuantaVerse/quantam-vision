@@ -1,5 +1,18 @@
 .vision-app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    color: white;
     text-align: center;
+    background: #061d3c;
+    background: radial-gradient(circle, rgba(0, 11, 115, 0.25) 0%, rgba(0, 0, 84, 0.25) 50%, rgba(2, 0, 36, 0.25) 100%),
+        linear-gradient(to bottom, #033246, #090530);
+
+    .top-navbar {
+        min-height: 60px;
+        border-bottom: 1px solid #7a736b;
+    }
 }
 
 .App-logo {
