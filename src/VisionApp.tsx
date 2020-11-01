@@ -1,6 +1,6 @@
 import React from "react";
 import "./assets/styles/VisionApp.scss";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, NavLink, Route, Switch, Redirect } from "react-router-dom";
 import WatchDog from "./pages/WatchDog";
 import DataHound from "./pages/DataHound";
 import Parrot from "./pages/Parrot";
@@ -14,7 +14,7 @@ function VisionApp() {
         <Router>
             <div className="vision-app">
                 <div className="top-navbar">
-                    <Link to={RouteEnum.DefaultRoute} className="vision-link">
+                    <NavLink to={RouteEnum.DefaultRoute} className="vision-link">
                         <div className="vision-icon-div">
                             <div className="vision-icon">
                                 <img src={visionLogo} className="vision-app-logo" alt="logo" />
@@ -23,7 +23,7 @@ function VisionApp() {
                                 <span className="vision-text-span">Vision</span>
                             </div>
                         </div>
-                    </Link>
+                    </NavLink>
                     <div className="vision-module-selector">
                         <ModuleLink to={RouteEnum.DataHoundRoute} icon="support">
                             Data Hound
@@ -38,7 +38,8 @@ function VisionApp() {
                 </div>
 
                 <Switch>
-                    <Route path={[RouteEnum.DefaultRoute, RouteEnum.DataHoundRoute]} exact={true}>
+                    <Redirect from={RouteEnum.DefaultRoute} to={RouteEnum.DataHoundRoute} exact={true} />
+                    <Route path={RouteEnum.DataHoundRoute}>
                         <DataHound />
                     </Route>
                     <Route path={RouteEnum.WatchDogRoute} exact={true}>

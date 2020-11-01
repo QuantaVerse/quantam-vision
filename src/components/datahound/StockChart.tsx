@@ -17,6 +17,7 @@ class StockChart extends Component<StockChartProps, {}> {
     render() {
         return (
             <div className="stock-chart-container">
+                hello
                 <div id="controls"></div>
                 <div id="stockchartdiv"></div>
             </div>

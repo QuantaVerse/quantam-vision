@@ -4,7 +4,7 @@ import React from "react";
 import { RouteEnum } from "../../common/enums";
 import { Icon } from "@material-ui/core";
 
-const styledModuleClassName = "styled-link";
+const styledModuleClassName = "styled-module-link";
 const moduleTextClassName = "module-name";
 const activeModuleClassName = "active-module";
 const moduleIconClassName = "module-icon";

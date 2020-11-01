@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
-import * as am4core from "@amcharts/amcharts4/core";
-import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes_dark from "@amcharts/amcharts4/themes/dark";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import "../assets/styles/pagestyles/DataHound.scss";
 import SideNavBar from "../components/navbars/SideNavBar";
 import StockChart from "../components/datahound/StockChart";
+import { DataHoundRouteEnum, NotFoundComponentType } from "../common/enums";
+import NotFound from "./NotFound";
+import { Redirect, Route, Switch } from "react-router-dom";
+import SideLink from "../components/links/SideLink";
+import ProxyManagerPieChart from "../components/datahound/ProxyManagerPieChart";
 
 interface ProxyAPIStats {
     status: string;
@@ -51,58 +52,6 @@ class DataHound extends Component<{}, ProxyManagerState> {
             .catch((e) => {
                 console.log(e);
             });
-
-        // Themes begin
-        am4core.useTheme(am4themes_animated);
-        am4core.useTheme(am4themes_dark);
-        // Themes end
-        // Create chart instance
-        let chart = am4core.create("chartdiv", am4charts.PieChart);
-
-        // Add data
-        chart.data = [
-            {
-                country: "Lithuania",
-                litres: 501.9
-            },
-            {
-                country: "Czech Republic",
-                litres: 301.9
-            },
-            {
-                country: "Ireland",
-                litres: 201.1
-            },
-            {
-                country: "Germany",
-                litres: 165.8
-            },
-            {
-                country: "Australia",
-                litres: 139.9
-            },
-            {
-                country: "Austria",
-                litres: 128.3
-            },
-            {
-                country: "UK",
-                litres: 99
-            },
-            {
-                country: "Belgium",
-                litres: 60
-            },
-            {
-                country: "The Netherlands",
-                litres: 50
-            }
-        ];
-
-        // Add and configure Series
-        let pieSeries = chart.series.push(new am4charts.PieSeries());
-        pieSeries.dataFields.value = "litres";
-        pieSeries.dataFields.category = "country";
     }
 
     render() {
@@ -114,12 +63,43 @@ class DataHound extends Component<{}, ProxyManagerState> {
                 proxyHitRates.push([proxyName, proxy_manager_stats[proxyName]?.api_stats?.api_hit_rate]);
             });
         }
+
         return (
             <div className="data-hound-module-container">
-                <SideNavBar />
+                <SideNavBar>
+                    <SideLink to={DataHoundRouteEnum.DashboardRoute} icon="dashboard">
+                        Dashboard
+                    </SideLink>
+                    <SideLink to={DataHoundRouteEnum.JobsRoute} icon="work">
+                        Jobs
+                    </SideLink>
+                    <SideLink to={DataHoundRouteEnum.DataRoute} icon="multiline_chart">
+                        Data
+                    </SideLink>
+                </SideNavBar>
                 <div className="data-hound-info-center">
-                    <div id="chartdiv" style={{ backgroundColor: "grey" }}></div>
-                    <StockChart />
+                    <Switch>
+                        <Redirect
+                            from={DataHoundRouteEnum.DefaultRoute}
+                            to={DataHoundRouteEnum.DashboardRoute}
+                            exact={true}
+                        />
+                        <Route path={DataHoundRouteEnum.DashboardRoute} exact={true}>
+                            <div className="data-hound-dashboard-container">
+                                <ProxyManagerPieChart />
+                            </div>
+                        </Route>
+                        <Route path={DataHoundRouteEnum.JobsRoute} exact={true}>
+                            Jobs
+                            <StockChart />
+                        </Route>
+                        <Route path={DataHoundRouteEnum.DataRoute} exact={true}>
+                            Data
+                        </Route>
+                        <Route path={DataHoundRouteEnum.OtherRoute}>
+                            <NotFound componentType={NotFoundComponentType.Page} />
+                        </Route>
+                    </Switch>
                 </div>
             </div>
         );

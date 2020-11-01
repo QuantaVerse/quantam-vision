@@ -1,5 +1,8 @@
 .side-navbar {
+    display: flex;
+    flex-direction: column;
     min-width: 180px;
     width: 180px;
     background: linear-gradient(to right, #152440, #152842);
+    border-right: 1px solid #a8d4e4;
 }

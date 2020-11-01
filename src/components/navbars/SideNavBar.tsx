@@ -1,8 +1,10 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import "../../assets/styles/componentstyles/SideNavBar.scss";
 
-function SideNavBar() {
-    return <div className="side-navbar"></div>;
-}
+interface ISideNavBarProps {}
+
+const SideNavBar: FunctionComponent<ISideNavBarProps> = (props) => {
+    return <div className="side-navbar">{props.children}</div>;
+};
 
 export default SideNavBar;
