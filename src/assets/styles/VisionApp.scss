@@ -57,23 +57,6 @@
         .vision-module-selector {
             display: flex;
             flex-direction: row;
-
-            .styled-link {
-                display: flex;
-                min-width: 180px;
-                width: 180px;
-                border-right: 1px solid #a8d4e4;
-
-                .module-name {
-                    margin: auto 0 auto auto;
-                    color: white;
-                    padding: 0 12px;
-                }
-                .module-icon {
-                    margin: auto auto auto 0;
-                    color: #c8ae8a;
-                }
-            }
         }
     }
 }

@@ -4,6 +4,9 @@ import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_dark from "@amcharts/amcharts4/themes/dark";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import "../assets/styles/pagestyles/DataHound.scss";
+import SideNavBar from "../components/navbars/SideNavBar";
+import StockChart from "../components/datahound/StockChart";
 
 interface ProxyAPIStats {
     status: string;
@@ -112,8 +115,12 @@ class DataHound extends Component<{}, ProxyManagerState> {
             });
         }
         return (
-            <div className="proxy-manager">
-                <div id="chartdiv" style={{ backgroundColor: "grey" }}></div>
+            <div className="data-hound-module-container">
+                <SideNavBar />
+                <div className="data-hound-info-center">
+                    <div id="chartdiv" style={{ backgroundColor: "grey" }}></div>
+                    <StockChart />
+                </div>
             </div>
         );
     }

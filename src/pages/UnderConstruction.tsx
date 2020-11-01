@@ -1,6 +1,7 @@
 import React from "react";
 import { Icon } from "@material-ui/core";
 import { UnderConstructionComponentType } from "../common/enums";
+import "../assets/styles/pagestyles/UnderConstruction.scss";
 
 interface UCProps {
     componentType: UnderConstructionComponentType;
